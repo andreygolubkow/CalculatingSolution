@@ -6,7 +6,7 @@ namespace CalculatingSolution.Core.Algorithms
 	public class CircleAreaAlgorithm: IAreaAlgorithm<Circle>
 	{
 		/// <inheritdoc />
-		public int CalculateArea(Circle figure)
+		public double CalculateArea(Circle figure)
 		{
 			throw new System.NotImplementedException();
 		}

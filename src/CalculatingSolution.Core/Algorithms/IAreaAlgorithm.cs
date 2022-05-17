@@ -11,6 +11,6 @@
 		/// </summary>
 		/// <param name="figure">figure</param>
 		/// <returns>area</returns>
-		int CalculateArea(TFig figure);
+		double CalculateArea(TFig figure);
 	}
 }
