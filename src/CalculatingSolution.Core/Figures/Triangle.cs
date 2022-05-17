@@ -7,12 +7,11 @@ namespace CalculatingSolution.Core.Figures
 	/// </summary>
 	public struct Triangle
 	{
-		private int _a;
-		private int _b;
-		private int _c;
-		
-		public Triangle(int a, int b, int c) : this()
+		private Triangle(double a, double b, double c) : this()
 		{
+			FigureValidations.ValidateSide(nameof(a), a, "A-side");
+			FigureValidations.ValidateSide(nameof(b), b, "B-side");
+			FigureValidations.ValidateSide(nameof(c), c, "C-side");
 			A = a;
 			B = b;
 			C = c;
@@ -24,15 +23,7 @@ namespace CalculatingSolution.Core.Figures
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
 		/// </exception>
-		public int A
-		{
-			get => _a;
-			private set
-			{
-				FigureValidations.ValidateSide(nameof(A), value, "A-side");
-				_a = value;
-			}
-		}
+		public double A { get; }
 
 		/// <summary>
 		/// Triangle B-side.
@@ -40,15 +31,7 @@ namespace CalculatingSolution.Core.Figures
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
 		/// </exception>
-		public int B
-		{
-			get => _b;
-			private set
-			{
-				FigureValidations.ValidateSide(nameof(B), value, "B-side");
-				_b = value;
-			}
-		}
+		public double B { get; }
 
 		/// <summary>
 		/// Triangle C-side.
@@ -56,14 +39,19 @@ namespace CalculatingSolution.Core.Figures
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
 		/// </exception>
-		public int C
+		public double C { get; }
+
+		/// <summary>
+		/// Create triangle from a,b,c side values
+		/// </summary>
+		/// <param name="a">A-side</param>
+		/// <param name="b">B-side</param>
+		/// <param name="c">C-side</param>
+		/// <returns>Triangle</returns>
+		/// <exception cref="ArgumentOutOfRangeException">When side is't number or less or equal 0</exception>
+		public static Triangle FromSides(double a, double b, double c)
 		{
-			get => _c;
-			private set
-			{
-				FigureValidations.ValidateSide(nameof(C), value, "C-side");
-				_c = value;
-			}
+			return new Triangle(a, b, c);
 		}
 	}
 }

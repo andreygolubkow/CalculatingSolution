@@ -23,7 +23,8 @@ namespace CalculatingSolution.Core.Figures
 		/// Create new circle by radius value.
 		/// </summary>
 		/// <param name="r">Radius</param>
-		/// <returns></returns>
+		/// <returns>Circle</returns>
+		/// <exception cref="ArgumentOutOfRangeException">When radius is't number or less or equal 0</exception>
 		public static Circle FromR(double r)
 		{
 			return new Circle(r);
