@@ -32,9 +32,12 @@ namespace CalculatingSolution.Core.Tests.Figures
             
             var outOfRangeException = Assert.Throws<ArgumentOutOfRangeException>(action);
             Assert.IsNotNull(outOfRangeException, "Validation does not throw exception");
-            Assert.IsTrue(typeof(ArgumentOutOfRangeException) == outOfRangeException.GetType(), $"Validation does not throw ArgumentException, but throws {outOfRangeException.GetType()}");
-            Assert.IsTrue(outOfRangeException.ParamName == TestSideParamName, "The exception does not contains correct argument name");
-            Assert.IsTrue(outOfRangeException.Message.Contains(TestSideName, StringComparison.InvariantCulture), "The exception does not contains correct side name");
+            Assert.IsTrue(typeof(ArgumentOutOfRangeException) == outOfRangeException.GetType(), 
+                          $"Validation does not throw ArgumentException, but throws {outOfRangeException.GetType()}");
+            Assert.IsTrue(outOfRangeException.ParamName == TestSideParamName, 
+                          "The exception does not contains correct argument name");
+            Assert.IsTrue(outOfRangeException.Message.Contains(TestSideName, StringComparison.InvariantCulture), 
+                          "The exception does not contains correct side name");
         }
     }
 }
