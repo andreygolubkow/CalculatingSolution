@@ -5,7 +5,7 @@ namespace CalculatingSolution.Core.Figures
 	/// <summary>
 	/// The triangle struct.
 	/// </summary>
-	public struct Triangle
+	public struct Triangle: IFigure
 	{
 		private Triangle(double a, double b, double c) : this()
 		{

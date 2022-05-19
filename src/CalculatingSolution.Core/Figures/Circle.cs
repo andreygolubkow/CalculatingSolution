@@ -5,7 +5,7 @@ namespace CalculatingSolution.Core.Figures
 	/// <summary>
 	/// The circle struct.
 	/// </summary>
-	public struct Circle
+	public struct Circle: IFigure
 	{
 		private Circle(double radius)
 		{
