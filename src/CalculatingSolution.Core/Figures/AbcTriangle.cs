@@ -6,7 +6,7 @@ namespace CalculatingSolution.Core.Figures
 	/// <summary>
 	/// The 3-sides triangle struct.
 	/// </summary>
-	public struct AbcTriangle: IFigure, IHasArea
+	public struct AbcTriangle: ITriangle, IHasArea
 	{
 		private AbcTriangle(double a, double b, double c) : this()
 		{
@@ -61,6 +61,23 @@ namespace CalculatingSolution.Core.Figures
 			var p = (A + B + C)/2.0;
 
 			return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+		}
+
+		/// <inheritdoc />
+		public bool IsRectangular()
+		{
+			if (A > B && A > C)
+			{
+				
+			} else if (B > A && B > C)
+			{
+				
+			} else if (C > A && C > B)
+			{
+				
+			}
+
+			return false;
 		}
 	}
 }
