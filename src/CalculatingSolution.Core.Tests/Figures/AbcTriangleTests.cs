@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace CalculatingSolution.Core.Tests.Figures
 {
 	[TestFixture]
-	public class TriangleTests
+	public class AbcTriangleTests
 	{
 		[TestCase(1,1,1, Description = "Creating a AbcTriangle with A=1,B=1,C=1")]
 		[TestCase(double.MaxValue, double.MaxValue, double.MaxValue, Description = "Creating a AbcTriangle with double.max values")]

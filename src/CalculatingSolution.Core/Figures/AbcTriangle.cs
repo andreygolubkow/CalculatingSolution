@@ -1,5 +1,6 @@
 ﻿using System;
 using CalculatingSolution.Core.Interfaces;
+using CalculatingSolution.Core.Theorems;
 
 namespace CalculatingSolution.Core.Figures
 {
@@ -68,15 +69,14 @@ namespace CalculatingSolution.Core.Figures
 		{
 			if (A > B && A > C)
 			{
-				
+				return PythagoreanTheorem.IsRectangularTriangle(B, C, A);
 			} else if (B > A && B > C)
 			{
-				
+				return PythagoreanTheorem.IsRectangularTriangle(A, C, B);
 			} else if (C > A && C > B)
 			{
-				
+				return PythagoreanTheorem.IsRectangularTriangle(A, B, C);
 			}
-
 			return false;
 		}
 	}
