@@ -1,13 +1,14 @@
 ﻿using System;
+using CalculatingSolution.Core.Interfaces;
 
 namespace CalculatingSolution.Core.Figures
 {
 	/// <summary>
-	/// The triangle struct.
+	/// The 3-sides triangle struct.
 	/// </summary>
-	public struct Triangle: IFigure
+	public struct AbcTriangle: IFigure, IHasArea
 	{
-		private Triangle(double a, double b, double c) : this()
+		private AbcTriangle(double a, double b, double c) : this()
 		{
 			FigureValidations.ValidateSide(nameof(a), a, "A-side");
 			FigureValidations.ValidateSide(nameof(b), b, "B-side");
@@ -18,7 +19,7 @@ namespace CalculatingSolution.Core.Figures
 		}
 		
 		/// <summary>
-		/// Triangle A-side.
+		/// AbcTriangle A-side.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
@@ -26,7 +27,7 @@ namespace CalculatingSolution.Core.Figures
 		public double A { get; }
 
 		/// <summary>
-		/// Triangle B-side.
+		/// AbcTriangle B-side.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
@@ -34,7 +35,7 @@ namespace CalculatingSolution.Core.Figures
 		public double B { get; }
 
 		/// <summary>
-		/// Triangle C-side.
+		/// AbcTriangle C-side.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// When side value less than zero or equal zero
@@ -47,11 +48,19 @@ namespace CalculatingSolution.Core.Figures
 		/// <param name="a">A-side</param>
 		/// <param name="b">B-side</param>
 		/// <param name="c">C-side</param>
-		/// <returns>Triangle</returns>
+		/// <returns>AbcTriangle</returns>
 		/// <exception cref="ArgumentOutOfRangeException">When side is't number or less or equal 0</exception>
-		public static Triangle FromSides(double a, double b, double c)
+		public static AbcTriangle FromSides(double a, double b, double c)
 		{
-			return new Triangle(a, b, c);
+			return new AbcTriangle(a, b, c);
+		}
+
+		/// <inheritdoc />
+		public double GetArea()
+		{
+			var p = (A + B + C)/2.0;
+
+			return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
 		}
 	}
 }

@@ -1,11 +1,12 @@
 ﻿using System;
+using CalculatingSolution.Core.Interfaces;
 
 namespace CalculatingSolution.Core.Figures
 {
 	/// <summary>
 	/// The circle struct.
 	/// </summary>
-	public struct Circle: IFigure
+	public readonly struct Circle: IFigure, IHasArea
 	{
 		private Circle(double radius)
 		{
@@ -28,6 +29,12 @@ namespace CalculatingSolution.Core.Figures
 		public static Circle FromR(double r)
 		{
 			return new Circle(r);
+		}
+
+		/// <inheritdoc />
+		public double GetArea()
+		{
+			return Math.PI * R * R;
 		}
 	}
 }
