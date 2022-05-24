@@ -25,7 +25,7 @@ namespace CalculatingSolution.Core.Tests.Figures
 		[TestCase(double.NegativeInfinity,1,1, Description = "Creating a AbcTriangle with negative infinity")]
 		[TestCase(0,1,1, Description = "Creating a triangle with zero")]
 		[TestCase(-1,1,1, Description = "Creating a triangle with -1")]
-		public void FromSidesThrowsExceptionTest(double invalidNum, double sideOne, double sideTwo)
+		public void FromSidesThrowsInvalideSidesExceptionTest(double invalidNum, double sideOne, double sideTwo)
 		{
 			TestDelegate actA = () =>
 								{
@@ -44,6 +44,17 @@ namespace CalculatingSolution.Core.Tests.Figures
 			Assert.Throws<ArgumentOutOfRangeException>(actB,
 														$"{nameof(AbcTriangle.FromSides)} should throw exception when 'b' invalid");
 			Assert.Throws<ArgumentOutOfRangeException>(actC, $"{nameof(AbcTriangle.FromSides)} should throw exception when 'c' invalid");
+		}
+
+		[TestCase(1,2,6, Description = "Trying to create a impossible triangle")]
+		public void FromSidesThrowsImpossibleTriangleExteptionTests(double a, double b, double c)
+		{
+			TestDelegate act = () =>
+								{
+									AbcTriangle.FromSides(a, b, c);
+								};
+			Assert.Throws<ArgumentException>(act, 
+														$"{nameof(AbcTriangle.FromSides)} should throw exception, because of it's impossible triangle");
 		}
 
 		[TestCase(1,1,1,false,Description = "Test IsRectangular with non-rectangular triangle")]
