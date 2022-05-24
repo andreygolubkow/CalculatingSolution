@@ -45,5 +45,27 @@ namespace CalculatingSolution.Core.Tests.Figures
 														$"{nameof(AbcTriangle.FromSides)} should throw exception when 'b' invalid");
 			Assert.Throws<ArgumentOutOfRangeException>(actC, $"{nameof(AbcTriangle.FromSides)} should throw exception when 'c' invalid");
 		}
+
+		[TestCase(1,1,1,false,Description = "Test IsRectangular with non-rectangular triangle")]
+		[TestCase(5,2,5.385, true, Description = "Test IsRectangular with rectangular triangle")]
+		[TestCase(2,5.385,5, true, Description = "Test IsRectangular with rectangular triangle")]
+		[TestCase(5.385,5,2, true, Description = "Test IsRectangular with rectangular triangle")]
+		public void IsRectangularTests(double a, double b, double c, bool isRectangular)
+		{
+			var triangle = AbcTriangle.FromSides(a, b, c);
+			
+			Assert.True(triangle.IsRectangular() == isRectangular, 
+						$"{nameof(AbcTriangle.IsRectangular)} returned incorrect value");
+		}
+
+		[TestCase(2,5,6,4.6837)]
+		public void GetAreaTest(double a, double b, double c, double expectedArea)
+		{
+			var triangle = AbcTriangle.FromSides(a, b, c);
+			var area = triangle.GetArea();
+			
+			Assert.AreEqual(area, expectedArea, TestConstants.Accuracy,
+							$"{nameof(AbcTriangle.GetArea)} returned incorrect value");
+		}
 	}
 }

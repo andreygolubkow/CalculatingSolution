@@ -14,6 +14,6 @@ namespace CalculatingSolution.Core
 	
 		public static CalculatrionRights Instance => _lazy.Value;
 
-		public double Accuracy { get; set; } = 0.0001;
+		public double Accuracy { get; set; } = 0.1;
 	}
 }

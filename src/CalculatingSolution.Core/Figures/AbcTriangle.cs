@@ -11,9 +11,6 @@ namespace CalculatingSolution.Core.Figures
 	{
 		private AbcTriangle(double a, double b, double c) : this()
 		{
-			FigureValidations.ValidateSide(nameof(a), a, "A-side");
-			FigureValidations.ValidateSide(nameof(b), b, "B-side");
-			FigureValidations.ValidateSide(nameof(c), c, "C-side");
 			A = a;
 			B = b;
 			C = c;
@@ -53,6 +50,10 @@ namespace CalculatingSolution.Core.Figures
 		/// <exception cref="ArgumentOutOfRangeException">When side is't number or less or equal 0</exception>
 		public static AbcTriangle FromSides(double a, double b, double c)
 		{
+			//TODO: Check that triangle with abc is possible
+			FigureValidations.ValidateSide(nameof(a), a, "A-side");
+			FigureValidations.ValidateSide(nameof(b), b, "B-side");
+			FigureValidations.ValidateSide(nameof(c), c, "C-side");
 			return new AbcTriangle(a, b, c);
 		}
 

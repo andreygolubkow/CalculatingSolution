@@ -30,5 +30,15 @@ namespace CalculatingSolution.Core.Tests.Figures
 								};
 			Assert.Throws<ArgumentOutOfRangeException>(act, $"{nameof(Circle.FromR)} should throw exception");
 		}
+
+		[TestCase(1,3.1415,Description = "Testing GetArea with r=1")]
+		[TestCase(500,785398.1633,Description = "Testing GetArea with r=500")]
+		public void GetAreaTests(double r, double area)
+		{
+			var circle = Circle.FromR(r);
+			var calculatedArea = circle.GetArea();
+			Assert.AreEqual(area, calculatedArea, area, 
+							$"{nameof(Circle.GetArea)} returned invalid area");
+		}
 	}
 }

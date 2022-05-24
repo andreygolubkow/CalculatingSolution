@@ -5,6 +5,6 @@
 		/// <summary>
 		/// The calculating accuracy.
 		/// </summary>
-		public const double Accuracy = 0.0001;
+		public const double Accuracy = 0.1;
 	}
 }
