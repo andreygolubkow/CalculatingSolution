@@ -70,10 +70,14 @@ namespace CalculatingSolution.Core.Figures
 			if (A > B && A > C)
 			{
 				return PythagoreanTheorem.IsRectangularTriangle(B, C, A);
-			} else if (B > A && B > C)
+			}
+
+			if (B > A && B > C)
 			{
 				return PythagoreanTheorem.IsRectangularTriangle(A, C, B);
-			} else if (C > A && C > B)
+			}
+
+			if (C > A && C > B)
 			{
 				return PythagoreanTheorem.IsRectangularTriangle(A, B, C);
 			}
