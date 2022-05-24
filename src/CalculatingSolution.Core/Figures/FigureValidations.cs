@@ -11,9 +11,9 @@ namespace CalculatingSolution.Core.Figures
         /// <param name="argumentValue">Argument value(side value)</param>
         /// <param name="sideName">The side name</param>
         /// <exception cref="ArgumentOutOfRangeException">When side value less than zero or zero</exception>
-        public static void ValidateSide(string argumentName,int argumentValue, string sideName)
+        public static void ValidateSide(string argumentName,double argumentValue, string sideName)
         {
-            if (argumentValue <= 0)
+            if (argumentValue <= 0 || double.IsInfinity(argumentValue) || double.IsNaN(argumentValue))
             {
                 throw new ArgumentOutOfRangeException(argumentName, $"{sideName} should be greater than 0");
             }
